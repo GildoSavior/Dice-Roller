@@ -8,22 +8,24 @@ import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
 
+    lateinit var diceImage : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val rollButton: Button = findViewById(R.id.roll_button)
-//        val textView: TextView = findViewById(R.id.result_text)
 
         rollButton.text = "Let's Roll"
         rollButton.setOnClickListener {
             rollDice()
         }
+
+        diceImage = findViewById(R.id.dice)
     }
 
 
     private fun rollDice() {
         val randomInt = (1..6).random()
-        val diceImage : ImageView = findViewById(R.id.dice)
 
         var drawableResource = when (randomInt) {
             1 -> R.drawable.dice_1
