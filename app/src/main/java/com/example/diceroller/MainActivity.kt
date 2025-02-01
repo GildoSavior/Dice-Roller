@@ -1,6 +1,9 @@
 package com.example.diceroller
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -18,38 +21,19 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val rollButton: Button = findViewById(R.id.roll_button)
+//        val textView: TextView = findViewById(R.id.result_text)
+
+        rollButton.text = "Let's Roll"
+        rollButton.setOnClickListener {
+         Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 
+
+    private fun dice() {
+        val randomInt = (1..6).random()
+        val resultText: TextView = findViewById(R.id.result_text)
+        resultText.text = randomInt.toString()
+    }
 }
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-//        setContent {
-//            DiceRollerTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-//            }
-//        }
-//    }
-
-
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    Text(
-//        text = "Hello $name!",
-//        modifier = modifier
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    DiceRollerTheme {
-//        Greeting("Android")
-//    }
-//}
