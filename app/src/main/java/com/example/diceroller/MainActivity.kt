@@ -3,18 +3,7 @@ package com.example.diceroller
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.diceroller.ui.theme.DiceRollerTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -26,12 +15,12 @@ class MainActivity : ComponentActivity() {
 
         rollButton.text = "Let's Roll"
         rollButton.setOnClickListener {
-         Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
+            rollDice()
         }
     }
 
 
-    private fun dice() {
+    private fun rollDice() {
         val randomInt = (1..6).random()
         val resultText: TextView = findViewById(R.id.result_text)
         resultText.text = randomInt.toString()
